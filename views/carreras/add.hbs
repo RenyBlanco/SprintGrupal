@@ -1,0 +1,45 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/carreras/add/{{circuito}}" method="post">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Piloto</th>
+                                <th scope="col">Tiempo</th>
+                                <th scope="col">Ubicacion</th>
+                                <th scope="col">Abandona</th>
+                                <th scope="col">Razon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each valores.equipos}}
+                                    <tr>
+                                        <td><input type="text" class="form-control" name="piloto1" value="{{piloto1}}" /></td>
+                                        <td><input type="text" class="form-control" name="piloto2" value="{{piloto2}}" /></td>
+                                        <td><input type="number" class="form-control" name="minutos" placeholder="minutos totales" /></td>
+                                        <td><input type="number" class="form-control" name="ubicacion" placeholder="ubicacion" /></td>
+                                        <td><input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"></td>
+                                        <td>
+                                            <select class="form-select" aria-label="razon abandono">
+                                                <option selected>Escoja la razón</option>
+                                                <option value="1">Técnico</option>
+                                                <option value="2">Personal</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                                                
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Grabar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
