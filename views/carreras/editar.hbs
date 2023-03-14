@@ -1,15 +1,51 @@
-<div class="container p-4">
+<div class="container-fluid p-4">
     <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-12 mx-auto">
             <div class="card">
+                <div class="card-header">
+                    <h5>Circuito : {{circuito}}</h5>
+                </div>
                 <div class="card-body">
-                    <form action="/menu/editar/{{menu.almuerzos.id}}" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="nombre" value="{{datos.almuerzos.nombre}}" />
-                        </div>
-                        <div class="form-group">
-                            <input type="number" class="form-control" name="precio" value="{{datos.almuerzos.precio}}" />
-                        </div>
+                    <form action="/carreras/add/{{circuito}}" method="post">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Equipo</th>
+                                    <th scope="col">Piloto</th>
+                                    <th scope="col">Tiempo</th>
+                                    <th scope="col">Ubicacion</th>
+                                    <th scope="col">Abandona</th>
+                                    <th scope="col">Razon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each valCarrera}}
+                                    <tr>
+                                        <td scope="row"><input type="text" class="form-control" name="escuderia" value="{{escuderia}}" /></td>
+                                        <td scope="row"><input type="text" class="form-control" name="pilotos" value="{{piloto}}" /></td>
+                                        <td><input type="text" class="form-control" name="minutos" value="{{minutos}}" /></td>
+                                        <td><input type="number" class="form-control" name="ubicacion" value="{{posicion}}" /></td>
+                                        <td>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" name="abandona" id="abandona" value="No" {{#if (esIgual 'No' abandona)}} checked {{/if}}>
+                                                <label class="form-check-label" for="abandona">No</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" name="abandona" id="abandona" value="Si" {{#if (esIgual 'Si' abandona)}} checked {{/if}}>
+                                                <label class="form-check-label" for="abandona">Si</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select class="form-select" name="razon" id="razon">
+                                                <option value="">Selecciona Razon</option>
+                                                <option value="Tecnico" {{#if (esIgual 'Tecnico' razon)}} selected {{/if}}>Técnico</option>
+                                                <option value="Personal" {{#if (esIgual 'Personal' razon)}} selected {{/if}}>Personal</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
                         <div class="form-group">
                             <button class="btn btn-success btn-block">Actualizar</button>
                         </div>

@@ -1,0 +1,38 @@
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Resultado en el Circuito : {{circuito}}</h5>
+                </div>
+                <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Equipo</th>
+                                    <th scope="col">Piloto</th>
+                                    <th scope="col">Tiempo</th>
+                                    <th scope="col">Posicion</th>
+                                    <th scope="col">Puntos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each valCarrera}}
+                                    {{#if posicion}}
+                                        <tr>
+                                            <td scope="row"><input type="text" class="form-control" name="escuderia" value="{{escuderia}}" disabled/></td>
+                                            <td><input type="text" class="form-control" name="pilotos" value="{{piloto}}" disabled/></td>
+                                            <td><input type="text" class="form-control" name="minutos" value="{{tiempo}}" disabled /></td>
+                                            <td><input type="text" class="form-control" name="ubicacion" value="{{posicion}}" disabled /></td>
+                                            <td><input type="text" class="form-control" name="puntos" value="{{puntos}}" disabled /></td>
+                                        </tr>
+                                    {{/if}}
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        <a href="/carreras" class="btn btn-info btn-sm"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

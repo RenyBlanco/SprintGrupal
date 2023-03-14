@@ -1,19 +1,40 @@
-<div class="container-fluid p-4">
+<div class="container-fluid">
     <div class="row">
-        {{#each valores.carrera}}
-            <div class="col-md-4 m-1">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <h3 class="card-title text-uppercase">
-                        {{fecha}} 
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <p class="m-2">{{circuito}}</p>
-                        <a href="/carreras/add/{{circuito}}" class="btn btn-danger btn-sm">Agregar Resultado</a>
+        <div class="col-12 mt-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="float-left">
+                        <h3 style="color: gray;"><i class="fa-solid fa-flag-checkered"></i> Carreras</h3>
                     </div>
                 </div>
-            </div>
-        {{/each}}
-    </div>
-</div>
+                <div class="card-body">
+                    <table id="example2" class="table table-hover table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Circuito</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each valores.carrera}}
+                                <tr>
+                                    <td>{{fecha}}</td>
+                                    <td>{{circuito}}</td>
+                                    <td class="text-center">
+                                        {{#if resultados}}
+                                            <a href="/carreras/ver/{{circuito}}" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i> Ver </a>
+                                            <a href="/carreras/editar/{{circuito}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i> Editar </a>
+                                        {{else}}
+                                            <a href="/carreras/add/{{circuito}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i> Agregar Resultado</a>
+                                        {{/if}}
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.card -->
+        </div> <!-- /.col-12 -->
+    </div> <!-- /.row -->
+</div> <!-- /.container-fluid -->
